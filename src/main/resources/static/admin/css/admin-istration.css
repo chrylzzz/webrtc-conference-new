@@ -1,0 +1,23 @@
+
+/*清除浮动*/
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*公共样式*/
+.center-style {
+    text-align: center !important;
+}
+.wrap {
+    border: 1px solid #BDBDBD;
+    background-color: #fff;
+}
+
+.wrap:first-child {
+    margin-bottom: 15px;
+}
+.wrap:last-child {
+    margin-top: 15px;
+}

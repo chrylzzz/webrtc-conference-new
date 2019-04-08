@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+		
+  <modelVersion>4.0.0</modelVersion>
+  
+  <!-- Maven coordinates -->
+	<parent>
+		<groupId>org.kurento</groupId>
+		<artifactId>kurento-parent-pom</artifactId>
+		<version>6.8.0</version>
+	</parent>
+  
+  <groupId>webrtc-conference</groupId>
+  <artifactId>webrtc-conference</artifactId>
+  <packaging>war</packaging>
+  <version>6.8.0</version>
+  <name>webrtc-conference Maven Webapp</name>
+  <url>http://igustudio.com</url>
+  
+  	<properties>
+		<version.kurento-datachannelexample>6.6.0</version.kurento-datachannelexample>
+	</properties>
+  
+  
+ <dependencies>
+		<!-- Spring -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+		</dependency>
+
+		<!-- WebJars -->
+		<dependency>
+			<groupId>org.webjars</groupId>
+			<artifactId>webjars-locator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>jquery</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>bootstrap</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>demo-console</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>ekko-lightbox</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.webjars.bower</groupId>
+			<artifactId>webrtc-adapter</artifactId>
+		</dependency>
+		
+		<dependency>
+				<groupId>org.kurento</groupId>
+				<artifactId>kurento-client</artifactId>
+				<version>6.8.0</version>
+	   	</dependency>
+		 
+		<dependency>
+			<groupId>org.kurento</groupId> 
+			<artifactId>kurento-utils-js</artifactId>
+		</dependency>
+		
+		<!-- token 库 -->
+		<dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+        <!-- 连接池  druid -->
+		<dependency>
+		   <groupId>com.alibaba</groupId>
+		   <artifactId>druid-spring-boot-starter</artifactId>
+		   <version>1.1.6</version>
+		</dependency>
+				
+		<!-- mybatis -->
+		<dependency>
+			<groupId>org.mybatis.spring.boot</groupId>
+			<artifactId>mybatis-spring-boot-starter</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+		
+		<!-- Mysql -->
+		<dependency>
+		    <groupId>mysql</groupId>
+		    <artifactId>mysql-connector-java</artifactId>
+		    <version>6.0.6</version>
+		</dependency>
+		
+		
+	</dependencies>
+  
+  
+  
+  <build>
+    <finalName>webrtc-conference</finalName>
+    
+    <plugins>
+     <!-- geelynote maven的核心插件之-complier插件默认只支持编译Java 1.4，
+            因此需要加上支持高版本jre的配置，在pom.xml里面加上 增加编译插件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <!--根据项目的 jdk 版本配置这里的版本-->
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <encoding>UTF-8</encoding>
+
+                    <!--非常重要-->
+                    <!--通过这个参数，将本地的 jar 包在编译的时候进行引入。
+                    如果没有配置，发布到其他地方的时候，会找不到 jar 包-->
+                    <compilerArguments>
+                        <extdirs>${project.basedir}/src/main/webapp/WEB-INF/lib</extdirs>
+                    </compilerArguments>
+                </configuration>
+            </plugin>
+    </plugins>
+    
+  </build>
+</project>

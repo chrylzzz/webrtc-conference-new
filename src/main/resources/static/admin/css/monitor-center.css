@@ -1,0 +1,94 @@
+.center-style {
+    text-align: center !important;
+}
+
+.wrap {
+    border: 1px solid #BDBDBD;
+    background-color: #fff;
+}
+
+.wrap:last-child {
+    margin-top: 15px;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.layui-nav {
+    padding: 0!important;
+}
+
+.layui-nav-child {
+    top: 40px!important;
+}
+
+.layui-nav-item {
+    line-height: 38px!important;
+}
+
+.nav_width {
+    width: 125px;
+    display: inline-block;
+}
+
+.chart {
+    height: 400px;
+    width: 80%;
+    outline: black solid 1px;
+    margin: 10px 10%;
+}
+
+.margin-left {
+    margin-left: 18px;
+}
+
+.btn-educe {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 10px;
+}
+
+.view-data {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    margin: 0 18px;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.btn-style {
+    display: flex;
+    display: -webkit-flex;
+    margin-bottom: 10px;
+}
+
+.input-style {
+    display: flex;
+    display: -webkit-flex;
+}
+
+.btn-group-style {
+    margin-left: 0!important;
+}
+
+.view-data-table {
+    margin: 45px 0;
+}
+
+.data-table {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    margin: 0px 2%;
+}
+
+.chart-container {
+    height: 100%;
+}
+.layui-btn {
+    padding: 0 9px!important;
+}

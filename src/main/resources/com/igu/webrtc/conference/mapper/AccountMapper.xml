@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.igu.webrtc.conference.mapper.AccountMapper">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.igu.webrtc.conference.model.Account" id="AccountMap">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="pwd" column="pwd"/>
+        <result property="token" column="token"/>
+        <result property="registerTime" column="register_time"/>
+        <result property="deleted" column="deleted"/>
+    </resultMap>
+
+      <!-- 查询商品货号白名单记录-->
+    <select id="selectOne" resultMap="AccountMap">
+          SELECT  * FROM t_account  t  WHERE t.username=#{username} AND t.deleted=0  limit 1
+    </select>
+   
+
+ 	<!-- 新增-->
+    <insert id="insertOne">
+           INSERT INTO t_account
+                (
+                `username`,
+                `pwd`,
+                  `register_time`
+                  )
+            VALUES (
+                    #{username},
+                    #{pwd},
+                    NOW()
+                    );
+     </insert>
+     
+    <!-- 更新-->
+    <update id="updateOne">
+        UPDATE t_account t
+          SET
+            t.id=#{id}
+            <if test="pwd !=null and pwd !=''">
+               , t.pwd=#{pwd} 
+            </if>
+            <if test="token !=null and token !=''">
+               , t.token=#{token} 
+            </if>
+        WHERE t.id=#{id} AND t.deleted=0 ;
+    </update>
+    
+    <!-- 删除-->
+    <update id="deleteOne">
+        UPDATE t_account t
+          SET
+           t.deleted=1
+        WHERE t.id=#{id} AND t.deleted=0 ;
+    </update>
+	
+	 <select id="getCount" resultType="long">
+          SELECT  count(*) FROM t_account  t  
+          <if test="username !=null and username !=''">
+			  <![CDATA[
+					WHERE  t.username LIKE concat('%',#{username},'%')
+			  ]]>
+		  </if>
+     </select>
+     
+     <select id="getList" resultMap="AccountMap">
+      SELECT  * FROM t_account  t   
+        <if test="username !=null and username !=''">
+		  <![CDATA[
+				WHERE  t.username LIKE concat('%',#{username},'%')
+		  ]]>
+		</if>
+		ORDER BY t.register_time DESC
+		<if test="startIndex != null">
+	 		LIMIT #{startIndex}
+		</if>
+		<if test="skip != null">
+			 ,#{skip}
+		</if>
+     </select>
+     
+
+</mapper>

@@ -1,0 +1,48 @@
+
+/*清除浮动*/
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*公共样式*/
+.center-style {
+    text-align: center !important;
+}
+.wrap {
+    border: 1px solid #BDBDBD;
+    background-color: #fff;
+}
+
+.wrap:first-child {
+    margin-bottom: 15px;
+}
+.wrap:last-child {
+    margin-top: 15px;
+}
+
+/*选择条件按钮*/
+.layui-nav {
+	padding: 0!important;
+}
+.nav_width {
+	width: 129px;
+	display: inline-block;
+}
+.layui-nav-item {
+	display: flex;
+	line-height: 38px!important;
+}
+.layui-nav-child {
+	top: 38px!important;
+}
+
+/*表格*/
+.data-table {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    margin: 0px 2%;
+}
+

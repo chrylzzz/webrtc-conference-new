@@ -1,0 +1,48 @@
+
+/*清除浮动*/
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/*公共样式*/
+.center-style {
+    text-align: center !important;
+}
+.wrap {
+    border: 1px solid #BDBDBD;
+    background-color: #fff;
+}
+
+.wrap:first-child {
+    margin-bottom: 15px;
+}
+.wrap:last-child {
+    margin-top: 15px;
+}
+
+
+/*收入概况*/
+.bm {
+	padding-bottom: 15px;
+}
+
+/*提现记录*/
+.rule {
+	text-align: left;
+}
+
+.tr {
+	height: 300px;
+}
+
+.rule p a {
+	color: #0000FF;
+}
+
+.rule p {
+	line-height: 30px;
+	font-size: 13px;
+}
+
